@@ -216,14 +216,14 @@ download_hf() {
     echo "    ${local_dir}/${filename}"
     echo "  --------------------------------------------------------"
 
-    "${HF_PYTHON}" - "${repo}" "${remote}" "${local_dir}" <<'PY'
+"${HF_PYTHON}" - "${repo}" "${remote}" "${local_dir}" <<'PY'
 import sys
+import os
 from huggingface_hub import hf_hub_download
 
 repo_id = sys.argv[1]
 filename = sys.argv[2]
 local_dir = sys.argv[3]
-
 token = os.environ.get("HF_TOKEN")
 
 hf_hub_download(
