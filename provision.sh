@@ -102,9 +102,15 @@ git rev-parse --short HEAD
 
 echo
 echo "==> Installing current ComfyUI requirements"
-
 "${COMFY_PYTHON}" -m pip install --upgrade pip
 
+echo
+echo "==> Upgrading PyTorch for current ComfyUI"
+"${COMFY_PYTHON}" -m pip install --upgrade \
+    torch torchvision torchaudio
+
+echo
+echo "==> Installing current ComfyUI requirements"
 "${COMFY_PYTHON}" -m pip install \
     -r "${COMFY_DIR}/requirements.txt"
 
