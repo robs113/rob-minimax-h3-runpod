@@ -108,6 +108,9 @@ echo
 echo "==> Upgrading PyTorch for current ComfyUI"
 "${COMFY_PYTHON}" -m pip install --upgrade \
     torch torchvision torchaudio
+echo
+echo "==> Removing incompatible bundled xformers"
+"${COMFY_PYTHON}" -m pip uninstall -y xformers || true
 
 echo
 echo "==> Installing current ComfyUI requirements"
