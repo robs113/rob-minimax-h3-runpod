@@ -60,6 +60,10 @@ done
 
 echo "==> Downloading MiniMax H3 models"
 
+# Ensure Hugging Face CLI is available
+/opt/environments/python/comfyui/bin/python -m pip install -U huggingface_hub
+export PATH="/opt/environments/python/comfyui/bin:$PATH"
+
 download_hf() {
   local repo="$1"
   local remote="$2"
