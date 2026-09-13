@@ -224,10 +224,13 @@ repo_id = sys.argv[1]
 filename = sys.argv[2]
 local_dir = sys.argv[3]
 
+token = os.environ.get("HF_TOKEN")
+
 hf_hub_download(
     repo_id=repo_id,
     filename=filename,
     local_dir=local_dir,
+    token=token,
 )
 
 print("Download complete.")
