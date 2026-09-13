@@ -37,11 +37,8 @@ echo
 # Stop ComfyUI while we modify the installation.
 # ------------------------------------------------------------
 
-echo "==> Stopping ComfyUI while provisioning"
+echo "==> ComfyUI is left running during provisioning"
 
-if command -v supervisorctl >/dev/null 2>&1; then
-    supervisorctl stop comfyui || true
-fi
 
 # ------------------------------------------------------------
 # Verify ComfyUI exists.
