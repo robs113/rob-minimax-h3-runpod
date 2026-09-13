@@ -11,7 +11,7 @@ set -Eeuo pipefail
 #   HF_TOKEN       Hugging Face token if a future model becomes gated.
 #   WORKFLOW_URL   Raw URL to fs2_NR-MiniMaxH3-Turbo-Extend-NoPDD-v18.json
 
-COMFY_DIR="${COMFY_DIR:-/workspace/ComfyUI}"
+COMFY_DIR="${COMFY_DIR:-/opt/ComfyUI}"
 MODELS="${COMFY_DIR}/models"
 CUSTOM="${COMFY_DIR}/custom_nodes"
 WORKFLOWS="${COMFY_DIR}/user/default/workflows"
@@ -52,7 +52,7 @@ for name in "${!REPOS[@]}"; do
 
   if [[ -f "${dir}/requirements.txt" ]]; then
     echo "  installing Python requirements for ${name}"
-    python -m pip install -r "${dir}/requirements.txt" || {
+    /opt/environments/python/comfyui/bin/python -m pip install -r "${dir}/requirements.txt" || {
       echo "WARNING: requirements failed for ${name}; continuing so the other nodes can install."
     }
   fi
